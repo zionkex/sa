@@ -1,0 +1,286 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load humanize %}
+
+{% block title %}Spirit Auto | Купити авто зі США, Канади, Кореї в Україні. Економія до 40%.{% endblock %}
+{% block meta %}Купити авто зі США від Spirit Auto. Економія до 40%. Обирайте серед широкого асортименту автомобілів з
+    Америки, Канади, Кореї. Надійні та перевірені авто з гарантією.{% endblock %}
+
+{% block og_title %}Купити авто зі США від Spirit Auto - Всі доступні авто в Україні. Економія до 40%.{% endblock %}
+
+{% block og_description %}Перегляньте наш каталог авто зі США. Економія до 40%. Компанія Spirit Auto пропонує великий
+    вибір автомобілів з Америки під ключ. Зручний фільтр, детальні характеристики та актуальні ціни на авто зі США,
+    Кореї, Канади в Україні.{% endblock %}
+
+{% block og_image %}{% static 'img/favicon/favicon-256x256.png' %}{% endblock %}
+
+{% block og_url %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block structured_data %}
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org/",
+          "@type": "Organization",
+          "name": "Spirit Auto - Купити авто зі США, Канади, Кореї. Економія до 40%.",
+          "image": "{% static 'img/favicon/favicon-256x256.png' %}",
+          "description": "Купити авто зі США від Spirit Auto. Економія до 40%. Перегляньте наш асортимент автомобілів з Америки, виберіть своє авто та замовте доставку під ключ. Висока якість, надійність та гарантія.",
+          "brand": {
+            "@type": "Brand",
+            "name": "Spirit Auto"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "url": "{{ request.build_absolute_uri }}",
+            "lowPrice": "3000",
+            "highPrice": "120000",
+            "priceCurrency": "USD",
+            "offerCount": "650",
+            "itemCondition": "https://schema.org/UsedCondition",
+            "availability": "https://schema.org/InStock"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+380XXXXXXXXX",
+            "contactType": "Customer Service",
+            "areaServed": "UA",
+            "availableLanguage": "Ukrainian"
+          }
+        }
+    </script>
+{% endblock %}
+
+{% block content %}
+    <main style="background: black;">
+        <section style="border-radius: 15px; background-color: #000; border-top: 1px solid #c29958;
+                                border-bottom: 1px solid #c29958; padding-bottom: 3rem;">
+            <div class="container__main__detail-car">
+                <button id="toggle-filters-button" class="toggle-filters-button__detail-car">
+                    <img src="{% static 'img/icons/filter-sort-filtering.svg' %}" alt="icon"
+                         style="width: 30px; height: 30px; margin-right: 5px;">
+                    Показати фільтри
+                </button>
+                <div id="filters-container">
+                    <form method="GET" action="" id="filterForm">
+                        <div class="filter-group__detail-car active">
+                            <h3 class="filter-toggle__detail-car">Марка</h3>
+                            <div class="filter-content__detail-car">
+                                <div class="filter-select__detail-car">
+                                    <select name="car_brand" onchange="document.getElementById('filterForm').submit();">
+                                        <option value="" {% if not selected_car_brand %}selected{% endif %}>Всі машини
+                                        </option>
+                                        {% for brand in car_brand %}
+                                            <option value="{{ brand.id }}"
+                                                    {% if brand.id|stringformat:"s" == selected_car_brand %}selected{% endif %}>
+                                                {{ brand.car_brand_name }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                    <span class="arrow__detail-car">&#10095;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-group__detail-car active">
+                            <h3 class="filter-toggle__detail-car">Тип кузова</h3>
+                            <div class="filter-content__detail-car">
+                                <div class="filter-select__detail-car">
+                                    <select name="body_style"
+                                            onchange="document.getElementById('filterForm').submit();">
+                                        <option value="" {% if not selected_body_style %}selected{% endif %}>Всі типи
+                                            кузовів
+                                        </option>
+                                        {% for style in body_style %}
+                                            <option value="{{ style }}"
+                                                    {% if style == selected_body_style %}selected{% endif %}>
+                                                {{ style }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                    <span class="arrow__detail-car">&#10095;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-group__detail-car active">
+                            <h3 class="filter-toggle__detail-car">Коробка передач</h3>
+                            <div class="filter-content__detail-car">
+                                <div class="filter-select__detail-car">
+                                    <select name="transmission"
+                                            onchange="document.getElementById('filterForm').submit();">
+                                        <option value="" {% if not selected_transmission %}selected{% endif %}>Всі
+                                            трансмісії
+                                        </option>
+                                        {% for trans in transmission %}
+                                            <option value="{{ trans }}"
+                                                    {% if trans == selected_transmission %}selected{% endif %}>
+                                                {{ trans }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                    <span class="arrow__detail-car">&#10095;</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-group__detail-car active">
+                            <h3 class="filter-toggle__detail-car">Привід</h3>
+                            <div class="filter-content__detail-car">
+                                <div class="filter-select__detail-car">
+                                    <select name="wheel_drive"
+                                            onchange="document.getElementById('filterForm').submit();">
+                                        <option value="" {% if not selected_wheel_drive %}selected{% endif %}>Всі
+                                            приводи
+                                        </option>
+                                        {% for wheel in wheel_drive %}
+                                            <option value="{{ wheel }}"
+                                                    {% if wheel == selected_wheel_drive %}selected{% endif %}>
+                                                {{ wheel }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                    <span class="arrow__detail-car">&#10095;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-group__detail-car active">
+                            <h3 class="filter-toggle__detail-car">Паливо</h3>
+                            <div class="filter-content__detail-car">
+                                <div class="filter-select__detail-car">
+                                    <select name="fuel_type"
+                                            onchange="document.getElementById('filterForm').submit();">
+                                        <option value="" {% if not selected_fuel_type %}selected{% endif %}>Всі види палива
+
+                                        </option>
+                                        {% for fuel in fuel_type %}
+                                            <option value="{{ fuel }}"
+                                                    {% if trans == selected_fuel_type %}selected{% endif %}>
+                                                {{ fuel }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                    <span class="arrow__detail-car">&#10095;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-group__detail-car active">
+                            <h3 class="filter-toggle__detail-car">Сортувати за ціною</h3>
+                            <div class="filter-content__detail-car">
+                                <div class="filter-select__detail-car">
+                                    <select name="sort_price"
+                                            onchange="document.getElementById('filterForm').submit();">
+                                        <option value="" {% if not sort_price %}selected{% endif %}>Не сортувати
+                                        </option>
+                                        <option value="asc" {% if sort_price == 'asc' %}selected{% endif %}>Від
+                                            дешевших до дорогих
+                                        </option>
+                                        <option value="desc" {% if sort_price == 'desc' %}selected{% endif %}>Від
+                                            дорогих до дешевших
+                                        </option>
+                                    </select>
+                                    <span class="arrow__detail-car">&#10095;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-group__detail-car active">
+                            <h3 class="filter-toggle__detail-car">Ціна</h3>
+                            <div class="filter-content__detail-car">
+                                <div class="price-inputs__detail-car">
+                                    <input type="number" name="price_min" placeholder="Від"
+                                           value="{% if price_min %}{{ price_min }}{% endif %}">
+                                    <input type="number" name="price_max" placeholder="До"
+                                           value="{% if price_max %}{{ price_max }}{% endif %}">
+                                    <button type="submit" class="search-button__detail-car">Пошук</button>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{% url 'catalog:cars_catalog' %}" class="reset-button__detail-car">Скинути фільтр</a>
+                    </form>
+                </div>
+
+                <div class="car-list">
+                    {% for car in car_list %}
+                        <div class="car-link__detail-car">
+                            <div class="car-card">
+                                <div class="car-image">
+                                    <a href="{{ car.get_absolute_url }}">
+                                        {% if car.car_title_photo %}
+                                            <img src="{{ car.car_title_photo.url }}" alt="Car Image" loading="lazy"
+                                                 class="default-image"/>
+                                        {% endif %}
+                                        {% if car.car_photo_1 %}
+                                            <img src="{{ car.car_photo_1.url }}" alt="Car Image Hover" loading="lazy"
+                                                 class="hover-image"/>
+                                        {% endif %}
+                                    </a>
+                                </div>
+                                <div class="car-details">
+                                    <a href="{{ car.get_absolute_url }}">
+                                        <div class="car-title">{{ car.car_title }}</div>
+                                    </a>
+                                    <div class="car-info">
+                                        <div class="car-info-item">
+                                            <div class="label">Ціна</div>
+                                            <div class="value">{{ car.price | intcomma }} $</div>
+                                        </div>
+                                        <div class="car-info-item">
+                                            <div class="label">Двигун</div>
+                                            <div class="value">{{ car.fuel_type }}, {{ car.engine }} л</div>
+
+                                        </div>
+                                        <div class="car-info-item">
+                                            <div class="label">Пробіг</div>
+                                            <div class="value">{{ car.mileage | intcomma }} км</div>
+                                        </div>
+                                        <div class="car-info-item">
+                                            <div class="label">Коробка передач</div>
+                                            <div class="value">{{ car.transmission }}</div>
+                                        </div>
+                                        <div class="car-info-item">
+                                            <div class="label">Привід</div>
+                                            <div class="value">{{ car.wheel_drive }}</div>
+
+                                        </div>
+                                        <div class="car-info-item">
+                                            <div class="label">Кузов</div>
+                                            <div class="value">{{ car.body_style }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="car-buttons">
+                                        <a href="#" class="custom-button-right">Купити</a>
+                                        <a href="{{ car.get_absolute_url }}" class="btn btn-detail">Детальніше</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            {% include 'includes/pagination.html' %}
+        </section>
+    </main>
+{% endblock %}
+
+{% block script %}
+    <script>
+        //--------------------- Hide Filter -------------------
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleButton = document.getElementById("toggle-filters-button");
+            const filtersContainer = document.getElementById("filters-container");
+
+            if (window.innerWidth < 768) {
+                filtersContainer.style.display = "none";
+            }
+
+            toggleButton.addEventListener("click", function () {
+                if (filtersContainer.style.display === "none" || filtersContainer.style.display === "") {
+                    filtersContainer.style.display = "block";
+                    toggleButton.innerHTML = '<img src="{% static 'img/icons/filter-sort-filtering.svg' %}" alt="icon" style="width: 20px; height: 20px; margin-right: 5px;"> Сховати фільтри';
+                } else {
+                    filtersContainer.style.display = "none";
+                    toggleButton.innerHTML = '<img src="{% static 'img/icons/filter-sort-filtering.svg' %}" alt="icon" style="width: 20px; height: 20px; margin-right: 5px;"> Показати фільтри';
+                }
+            });
+        });
+        //--------------------- End Hide Filter -------------------
+    </script>
+{% endblock %}

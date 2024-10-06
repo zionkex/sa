@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 800 800">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #dacbb6;
+      }
+    </style>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.6.0, SVG Export Plug-In . SVG Version: 1.2.0 Build 709)  -->
+  <g>
+    <g id="meteor-icon-kit__solid-instagram">
+      <path class="cls-1" d="M400,0C179.1,0-1.6,180.3-1.6,402.4s147,367.5,339,397.6v-281.1h-102v-116.5h102v-88.8c0-100.8,59.8-156.2,151.8-156.2s89.6,7.6,89.6,7.6v99.2h-50.6c-49.8,0-65.5,30.9-65.5,62.7v75.5h111.6l-18.1,116.5h-93.6v281.1c94.6-14.9,180.8-63.2,243-136.1,62.2-72.9,96.2-165.6,96-261.4C801.6,180.3,620.9,0,400,0Z"/>
+    </g>
+  </g>
+</svg>

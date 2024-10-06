@@ -1,0 +1,36 @@
+{% load static %}
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Spirit Auto авто зі США" class="footer-logo">
+            <p>SpiritAuto © 2024</p>
+            <p>Усі права захищені.</p>
+        </div>
+        <div class="footer-column">
+            <h4>Інформація</h4>
+            <ul>
+                <li><a href="{% url 'catalog:cars_catalog' %}">Каталог</a></li>
+                <li><a href="{% url 'pages:contact' %}">Контакти</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Час роботи:</h4>
+            <p>Пн-Пт: 10:00 - 19:00</p>
+            <div class="social-icons-footer">
+                <a href="https://www.instagram.com/spirit.auto.ukraine?igsh=cmp3azBpZG41b2pu" target="_blank"><img src="{% static 'img/icons/social-icons/instagram-footer.svg' %}" alt="Instagram"></a>
+                <a href="https://t.me/+VWZ-XxFgbQFjNGQ6" target="_blank"><img src="{% static 'img/icons/social-icons/telegram-footer.svg' %}" alt="Telegram"></a>
+                <a href="https://www.facebook.com/share/9nP7XTiQsmpfCfep/?mibextid=LQQJ4d" target="_blank"><img src="{% static 'img/icons/social-icons/facebook-footer.svg' %}" alt="Facebook"></a>
+                <a href="https://youtube.com/@spiritautoukraine?si=nImeDo07NhOB_Ohy" target="_blank"><img src="{% static 'img/icons/social-icons/youtube-footer.svg' %}" alt="Facebook"></a>
+            </div>
+        </div>
+        <div class="footer-column">
+            <h4>Контакти:</h4>
+            <div class="contact__container">
+                <a href="tel:+380 (68) 018 66 66" class="phone">+380 (68) 018 66 66</a>
+            </div>
+            <h4>Наша адреса:</h4>
+            <a href="https://maps.app.goo.gl/QB16kT6sfuAuLdTc6" target="_blank"><p>вулиця Василя Липківського 45, офіс, 11/12, 2 поверх, Kyiv, Ukraine, 03035</p></a>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,218 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{% block title %} {% endblock %}</title>
+    <!-- SEO Meta -->
+    <meta name="description" content="{% block meta %} {% endblock %}"/>
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{% block og_title %}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}{% endblock %}">
+    <meta property="og:url" content="{% block og_url %}{% endblock %}">
+    <meta property="og:type" content="website">
+    <!-- Structured data -->
+    {% block structured_data %}
+    {% endblock %}
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon/favicon-16x16.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="48x48" href="{% static 'img/favicon/favicon-48x48.png' %}">
+    <link rel="icon" type="image/png" sizes="64x64" href="{% static 'img/favicon/favicon-64x64.png' %}">
+    <link rel="icon" type="image/png" sizes="128x128" href="{% static 'img/favicon/favicon-128x128.png' %}">
+    <link rel="icon" type="image/png" sizes="180x180" href="{% static 'img/favicon/favicon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'img/favicon/favicon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="256x256" href="{% static 'img/favicon/favicon-256x256.png' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <!-- Modal Window Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    {#    Mobile    #}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    
+    {#    Mobile    #}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- End Modal Window Library -->
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+<!-- Header -->
+{% include 'includes/navbar.html' %}
+<!-- ---------- Modal Window ---------- -->
+<div id="customModal" class="custom-modal">
+    <div class="custom-modal-content">
+        <span class="close-btn">&times;</span>
+        <div class="modal-header">
+            <img
+                    src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}"
+                    alt="Logo"
+            />
+        </div>
+        <div class="modal-body">
+            <p>
+                Залиште контактні дані. Ми зв'яжемося з вами в
+                найближчий час
+            </p>
+            <form method="post" action="{% url 'pages:index' %}">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="Ім'я" required/>
+                <input id="phone" name="phone" type="tel" placeholder=" (99) 999-99-99" required/>
+                <button type="submit" class="submit-button">ВІДПРАВИТИ</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- ---------- End Modal Window ---------- -->
+<!-- Success Modal Window -->
+<div id="successModal" class="modal-success">
+    <div class="modal-content-success">
+        <span class="close-success">&times;</span>
+        <p>Ваша заявка успішно відправлена!</p>
+    </div>
+</div>
+<!-- End Success Modal Window -->
+{% block content %}
+
+{% endblock %}
+
+{% include 'includes/footer.html' %}
+{# ----- Mobile Gallery -----#}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+<script>
+ $(document).ready(function () {
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: false,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                1000: {
+                    items: 3
+                }
+            },
+            touchDrag: true,
+            mouseDrag: true
+        });
+    });
+    document.getElementById("contactBtn").addEventListener("click", function () {
+        const menu = document.getElementById("contactMenu");
+        menu.classList.toggle("show");
+    });
+
+    document.getElementById("closeBtn").addEventListener("click", function () {
+        const menu = document.getElementById("contactMenu");
+        menu.classList.remove("show");
+    });
+
+    document.addEventListener("click", function (event) {
+        const menu = document.getElementById("contactMenu");
+        const btn = document.getElementById("contactBtn");
+        if (!menu.contains(event.target) && !btn.contains(event.target)) {
+            menu.classList.remove("show");
+        }
+    });
+
+    // ------------ End Mobile Black Icon Phone ------------ >
+</script>
+<script>
+    // ------------------ Modal Window Call ------------------
+    const input = document.querySelector("#phone");
+    const nameInput = document.querySelector('input[type="text"]');
+    if (input) {
+        const iti = window.intlTelInput(input, {
+            initialCountry: "ua",
+            preferredCountries: ["ua", "us", "gb"],
+            separateDialCode: true,
+            utilsScript:
+                "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        });
+    }
+
+    const modal = document.getElementById("customModal");
+    const openButtons = document.querySelectorAll(
+        ".custom-button-left, .custom-button-right"
+    );
+    const closeButton = document.querySelector(".close-btn");
+
+    openButtons.forEach((button) => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+            modal.classList.add("show");
+        });
+    });
+
+    if (closeButton) {
+        closeButton.addEventListener("click", function () {
+            modal.classList.remove("show");
+        });
+    }
+
+    window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+            modal.classList.remove("show");
+        }
+    });
+
+    input.addEventListener("input", function () {
+        this.value = this.value.replace(/[^\d+]/g, "");
+        if (this.value.length > 20) {
+            this.value = this.value.slice(0, 20);
+        }
+    });
+
+    nameInput.addEventListener("input", function () {
+        if (this.value.length > 20) {
+            this.value = this.value.slice(0, 20);
+        }
+    });
+    // ------------------ End Modal Window Call ------------------
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var modal = document.getElementById("successModal");
+
+        var span = document.getElementsByClassName("close-success")[0];
+
+        var formSubmitted = "{{ form_submitted|yesno:'true,false' }}";
+        if (formSubmitted === "true") {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    });
+</script>
+
+<script type="text/javascript">
+  (function(d, w, s) {
+  var widgetHash = '1una6m6b9nzxaw16atlq', gcw = d.createElement(s); gcw.type = 'text/javascript'; gcw.async = true;
+  gcw.src = '//widgets.binotel.com/getcall/widgets/'+ widgetHash +'.js';
+  var sn = d.getElementsByTagName(s)[0]; sn.parentNode.insertBefore(gcw, sn);
+  })(document, window, 'script');
+</script>
+{% block script %}
+
+{% endblock %}
+</body>
+</html>

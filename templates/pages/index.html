@@ -1,0 +1,543 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load humanize %}
+
+{% block title %}Spirit Auto | Пригін та продаж автомобілів зі США в Україні{% endblock %}
+{% block meta %}Spirit Auto - українська компанія, яка спеціалізується на пригону та продажу авто зі США. Економія до
+    40%. Висока якість,
+    надійність та гарантія для кожного клієнта.{% endblock %}
+
+{% block og_title %}Пригін та продаж автомобілів зі США в Україні від Spirit Auto{% endblock %}
+
+{% block og_description %}Купити авто зі США в Україні з компанією Spirit Auto. Якісні авто з Америки та інших країн в
+    Україні. Пригін та продаж авто зі США, Кореї, Канади під ключ, включаючи всі етапи: від вибору до доставки в
+    Україну. Гарантована якість та прозорість угод.{% endblock %}
+
+{% block og_image %}{% static 'img/favicon/favicon-256x256.png' %}{% endblock %}
+
+{% block og_url %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block structured_data %}
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org/",
+          "@type": "Organization",
+          "name": "Spirit Auto - Пригін та продаж автомобілів зі США в Україні",
+          "image": "{% static 'img/favicon/favicon-256x256.png' %}",
+  "description": "Купити авто зі США в Україні з компанією Spirit Auto. Якісні авто з Америки та інших країн в Україні. Пригін та продаж авто під ключ. Висока якість, надійність та гарантія. Ідеальні варіанти для вашого бюджету та потреб.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Spirit Auto"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ request.build_absolute_uri }}",
+    "itemCondition": "https://schema.org/NewCondition",
+    "availability": "https://schema.org/InStock"
+  },
+    "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+380XXXXXXXXX",
+    "contactType": "Customer Service",
+    "areaServed": "UA",
+    "availableLanguage": "Ukrainian"
+  }
+}
+    </script>
+{% endblock %}
+
+{% block content %}
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>АВТОМОБІЛІ ЗІ США ПІД КЛЮЧ</h1>
+            <p>ЕКОНОМІЯ ДО 40%</p>
+            <div class="button-container">
+                <a href="#" class="custom-button-left btn__left display-pc-gallery"
+                >Безкоштовний підбір авто</a
+                >
+                <a href="#" class="custom-button-right btn__right" style="background-color: rgba(0,0,0,0.5)"
+                >Розрахунок вартості</a
+                >
+            </div>
+        </div>
+        <div class="social-icons display-pc-parallax">
+            <div class="line"></div>
+            <a href="https://www.instagram.com/spirit.auto.ukraine?igsh=cmp3azBpZG41b2pu" target="_blank">
+                <img
+                        src="{% static 'img/icons/social-icons/instagram-footer.svg' %}"
+                        alt="Instagram"
+                />
+            </a>
+            <a href="https://t.me/spiritauto" target="_blank">
+                <img
+                        src="{% static 'img/icons/social-icons/telegram-footer.svg' %}"
+                        alt="Telegram"
+                />
+            </a>
+            <a href="https://www.facebook.com/share/9nP7XTiQsmpfCfep/?mibextid=LQQJ4d" target="_blank">
+                <img
+                        src="{% static 'img/icons/social-icons/facebook-footer.svg' %}"
+                        alt="Facebook"
+                />
+            </a>
+            <a href="https://youtube.com/@spiritautoukraine?si=nImeDo07NhOB_Ohy" target="_blank">
+                <img
+                        src="{% static 'img/icons/social-icons/youtube-footer.svg' %}"
+                        alt="Youtube"
+                />
+            </a>
+            <div class="line"></div>
+        </div>
+    </section>
+    <!-- ---------- End Modal Window ---------- -->
+    <main style="background-color: #dacbb6">
+        <!-- ----- Logos Section ----- -->
+        <div class="marquee-container-index">
+            <div class="marquee-index">
+                <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Image 1">
+                <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Image 1">
+                <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Image 1">
+                <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Image 1">
+                <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Image 1">
+                <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Image 1">
+                <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Image 1">
+                <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Image 1">
+                <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Image 1">
+                <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Image 1">
+                <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Image 1">
+
+            </div>
+        </div>
+        <!-- ----- Services Section -----  -->
+        <section class="services-section">
+            <div class="container__services">
+                <div class="service-box__services">
+                    <div class="icon__services">
+                        <img src="{% static 'img/icons/key.svg' %}" alt="Car Icon"/>
+                    </div>
+                    <h3>Повний комплекс послуг</h3>
+                    <p>
+                        Підберемо авто, організуємо доставку та оформимо всі документи.
+                    </p>
+                </div>
+                <div class="service-box__services">
+                    <div class="icon__services">
+                        <img
+                                src="{% static 'img/icons/experts.svg' %}"
+                                alt="Expert Icon"
+                        />
+                    </div>
+                    <h3>Команда сертифікованих експертів</h3>
+                    <p>
+                        Наша команда знає все про авто та забезпечує високий рівень послуг на кожному етапі процесу.
+                    </p>
+                </div>
+                <div class="service-box__services">
+                    <div class="icon__services">
+                        <img
+                                src="{% static 'img/icons/garant.svg' %}"
+                                alt="Handshake Icon"
+                        />
+                    </div>
+                    <h3>Прямі послуги без переплат</h3>
+                    <p>
+                        Працюємо без посередників, що забезпечує прозору ціну та відсутність зайвих витрат.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- ----- End Services Section -----  -->
+        <!-- ----- Benefits Section ----- -->
+        <section class="why-buy-section">
+            <div class="container-benefits">
+                <div class="header-benefits__container">
+                    <h2>ЧОМУ ВИГІДНО КУПУВАТИ ЗІ США</h2>
+                </div>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <h3>
+                            <span class="highlight">|</span> Економія до 40% на автомобілях зі США
+                        </h3>
+                        <p>
+                            Обирайте авто, які залишаються вигідними навіть після врахування всіх витрат на доставку та
+                            розмитнення. Придбайте бажане авто за доступною ціною.
+                        </p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>
+                            <span class="highlight">|</span> Широкий вибір авто на американських аукціонах
+                        </h3>
+                        <p>
+                            Маємо доступ до великого асортименту авто на аукціонах: від нових моделей до машин із
+                            мінімальними пошкодженнями. Знайдемо авто під будь-який бюджет і побажання.
+                        </p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>
+                            <span class="highlight">|</span> Прозора історія кожного автомобіля
+                        </h3>
+                        <p>
+                            Наші експерти ретельно перевіряють кожен автомобіль перед покупкою, гарантуючи вам повну
+                            прозорість його історії та стану. Уникайте неприємних сюрпризів і купуйте з впевненістю.
+                        </p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>
+                            <span class="highlight">|</span> Ідеальний технічний стан авто зі США
+                        </h3>
+                        <p>
+                            Авто з США відомі своїм відмінним технічним станом завдяки сприятливому клімату,
+                            високоякісному паливу та рівним дорогам. Ви отримуєте авто, яке зберегло свій ресурс і
+                            надійність.
+                        </p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>
+                            <span class="highlight">|</span> Унікальні автомобілі зі США
+                        </h3>
+                        <p>
+                            Придбайте автомобілі, які не представлені на інших ринках. Отримайте доступ до ексклюзивних
+                            моделей, які підкреслять вашу індивідуальність.
+                        </p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>
+                            <span class="highlight">|</span> Більш насичені комплектації авто зі США
+                        </h3>
+                        <p>
+                            Автомобілі з США відомі своїм багатшим оснащенням навіть у базовій комплектації. Отримайте
+                            більше функцій та зручностей за ті самі гроші.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ----- End Benefits Section ----- -->
+        <!-- ----- Parallax Section Mobile ----- -->
+        <section
+                class="parallax-section__parallax-mobile display-mobile-parallax"
+                style="background-image: url({% static 'img/index/usa-flag.webp' %});  background-repeat: no-repeat; background-size: cover;"
+        >
+            <div class="parallax-image__parallax-mobile"></div>
+            <div class="content__parallax-mobile">
+                <h3>Ми в соціальних мережах</h3>
+                <p>Будьте в курсі найактуальніших цін та новин</p>
+                <div class="parallax_social-icons__parallax-pc">
+                    <a href="https://www.instagram.com/spirit.auto.ukraine?igsh=cmp3azBpZG41b2pu" target="_blank"
+                    ><img
+                            class="parallax__icons-pc"
+                            src="{% static 'img/icons/social-icons/instagram.webp' %}"
+                            alt=""
+                    /></a>
+                    <a href="https://t.me/spiritauto" target="_blank"
+                    ><img
+                            class="parallax__icons-pc"
+                            src="{% static 'img/icons/social-icons/telegram.webp' %}"
+                            alt=""
+                    /></a>
+                    <a href="https://www.facebook.com/share/9nP7XTiQsmpfCfep/?mibextid=LQQJ4d" target="_blank"
+                    ><img
+                            class="parallax__icons-pc"
+                            src="{% static 'img/icons/social-icons/facebook.webp' %}"
+                            alt=""
+                    /></a>
+                    <a href="https://youtube.com/@spiritautoukraine?si=nImeDo07NhOB_Ohy" target="_blank"
+                    ><img
+                            class="parallax__icons-pc"
+                            src="{% static 'img/icons/social-icons/youtube.webp' %}"
+                            alt=""
+                    /></a>
+                    <a href="https://www.tiktok.com/@spirit.auto_ukraine?_t=8pHPVZ0t6Jh" target="_blank"
+                    ><img
+                            class="parallax__icons-pc"
+                            src="{% static 'img/icons/social-icons/tiktok.webp' %}"
+                            alt=""
+                    /></a>
+                </div>
+            </div>
+        </section>
+        <!-- ----- End Parallax Section Mobile ----- -->
+        <!-- ----- Parallax Section PC ----- -->
+        <section class="parallax-section__parallax-pc display-pc-parallax">
+            <div class="parallax-image__parallax-pc"
+                 style="background-image: url({% static 'img/index/cant.webp' %});"></div>
+            <div class="content__parallax-pc">
+                <h3>Ми в соціальних мережах</h3>
+                <p>Будьте в курсі найактуальніших цін та новин</p>
+                <div class="parallax_social-icons__parallax-pc">
+                    <a href="https://www.instagram.com/spirit.auto.ukraine?igsh=cmp3azBpZG41b2pu" target="_blank"
+                    ><img
+                            class="parallax__icons-pc"
+                            src="{% static 'img/icons/social-icons/instagram.webp' %}"
+                            alt=""
+                    /></a>
+                    <a href="https://t.me/spiritauto" target="_blank"
+                    ><img
+                            class="parallax__icons-pc"
+                            src="{% static 'img/icons/social-icons/telegram.webp' %}"
+                            alt=""
+                    /></a>
+                    <a href="https://www.facebook.com/share/9nP7XTiQsmpfCfep/?mibextid=LQQJ4d" target="_blank"
+                    ><img
+                            class="parallax__icons-pc"
+                            src="{% static 'img/icons/social-icons/facebook.webp' %}"
+                            alt=""
+                    /></a>
+                    <a href="https://youtube.com/@spiritautoukraine?si=nImeDo07NhOB_Ohy" target="_blank"
+                    ><img
+                            class="parallax__icons-pc"
+                            src="{% static 'img/icons/social-icons/youtube.webp' %}"
+                            alt=""
+                    /></a>
+                    <a href="https://www.tiktok.com/@spirit.auto_ukraine?_t=8pHPVZ0t6Jh" target="_blank"
+                    ><img
+                            class="parallax__icons-pc"
+                            src="{% static 'img/icons/social-icons/tiktok.webp' %}"
+                            alt=""
+                    /></a>
+                </div>
+            </div>
+            <div class="overlay-image__parallax-pc">
+                <img src="{% static 'img/index/social-bg.png' %}" alt="Overlay Image"/>
+            </div>
+        </section>
+        <!-- ----- End Parallax Section PC ----- -->
+        <!-- ----- Main Cars Category ----- -->
+        <section class="popular-cars__main_cars">
+            <div class="container__main_cars">
+                <h3>
+                    <span class="highlight__main_cars">Найпопулярніші</span>
+                    Автомобілі
+                </h3>
+                <div class="car-grid__main_cars">
+                    {% for brand in cars_brand %}
+                        <a href="{% url 'catalog:cars_by_brand' brand.slug %}" class="car-item__main_cars">
+                            <div>
+                                <img
+                                        src="{{ brand.car_brand_image.url }}"
+                                        alt="{{ brand.car_brand_name }}"
+                                />
+                                <div class="car-info__main_cars">
+                                    <h4>{{ brand.car_brand_name }}</h4>
+                                    <p>Ціна від {{ brand.get_min_price | intcomma }} $</p>
+                                </div>
+                                <div class="overlay__main_cars"></div>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="button-container__main_cars">
+                <a href="{% url 'catalog:cars_catalog' %}" class="custom-button-left-catalog btn__left-catalog"
+                >Подивитись більше</a
+                >
+            </div>
+        </section>
+        <!-- ----- End Main Cars Category ----- -->
+        <!-- ----- CTA Section ----- -->
+        <section class="selection-section__cta">
+            <div class="selection-container__cta">
+                <div class="car-image__cta">
+                    <img src="{% static 'img/index/car_top.webp' %}" alt="Car Top View"/>
+                </div>
+                <div class="text-container__cta">
+                    <h2>ДАВАЙТЕ ПІДБЕРЕМО АВТО ВАШОЇ МРІЇ!</h2>
+                    <p>
+                        Отримайте консультацію щодо ціни, з урахуванням витрат або з будь-якого іншого питання.
+                    </p>
+            <div class="button-container">
+
+                <a href="#" class="custom-button-right btn__right" style="background-color: #680A08; border: none;"
+                >Розрахунок вартості</a
+                >
+            </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            const phoneInput = document.querySelector('input[name="phone"]');
+
+            phoneInput.addEventListener('input', function (e) {
+                let cleaned = e.target.value.replace(/[^\d+]/g, '');
+
+                if (cleaned.length > 20) {
+                    cleaned = cleaned.slice(0, 20);
+                }
+
+                e.target.value = cleaned;
+            });
+        </script>
+        <!-- ----- End CTA Section ----- -->
+        <!-- ----- Features Section ----- -->
+        <section class="feature-section">
+            <div class="feature-container">
+                <div class="feature-text">
+
+
+                    <h2>ПІДБІР НА АУКЦІОНАХ США</h2>
+                    <p>
+                        SpiritAuto пропонує експертний підбір автомобілів на аукціонах США, забезпечуючи бездоганний
+                        процес покупки. Наша команда фахівців здійснює детальний аналіз ринку, оцінює технічний стан
+                        автомобілів та пропонує тільки найкращі варіанти для ваших потреб.
+                    </p>
+                    <p>
+                        Ми супроводжуємо вас на всіх
+                        етапах — від вибору до завершення угоди, гарантуючи високу якість та вигідні умови. Обирайте
+                        SpiritAuto для надійного та вигідного придбання автомобіля з США.
+                    </p>
+                    <a href="{% url 'about:about' %}" class="learn-more"
+                    >Детальніше <span>&#10140;</span></a
+                    >
+                </div>
+                <div class="feature-image">
+                    <img
+                            src="{% static 'img/index/SpiritAutoCompany.webp' %}"
+                            alt="ПОСЛУГИ З ТРАНСПОРТУВАННЯ"
+                    />
+                </div>
+            </div>
+            <div class="feature-container reverse">
+                <div class="feature-text">
+                    <h2>ПОСЛУГИ З ТРАНСПОРТУВАННЯ</h2>
+                    <p>
+                        SpiritAuto пропонує комплексні послуги з транспортування автомобілів, забезпечуючи надійність та
+                        ефективність на кожному етапі. Завдяки численним логістичним партнерам по всьому світу і добре
+                        налагодженій логістиці, ми можемо організувати доставку авто у будь-які порти, від європейських
+                        до України. 
+                    </p>
+                    <p>
+                        Після митного оформлення та завершення процесу купівлі, за необхідності, ми
+                        забезпечимо доставку автомобіля до будь-якого регіону України. Наша команда гарантує безпеку та
+                        своєчасність транспортування, щоб забезпечити вам бездоганний сервіс.
+                    </p>
+                    <a href="{% url 'about:about' %}" class="learn-more"
+                    >Детальніше <span>&#10140;</span></a
+                    >
+                </div>
+                <div class="feature-image">
+                    <img
+                            src="{% static 'img/index/SpiritAuroTransfer.webp' %}"
+                            alt="ПОСЛУГИ З ТРАНСПОРТУВАННЯ"
+                    />
+                </div>
+            </div>
+
+            <div class="feature-container">
+                <div class="feature-text">
+                    <h2>ПОВНИЙ СПЕКТР ПОСЛУГ ПІД КЛЮЧ</h2>
+                    <p>
+                        SpiritAuto пропонує повний спектр послуг під ключ, щоб спростити процес роботи з автомобілем
+                        після його прибуття. Ми беремо всі процеси на себе — від розмитнення та сертифікації до ремонту
+                        та обслуговування. Наша послуга «Під ключ» дозволяє вам залишити всі турботи на нас, включаючи
+                        доставку запчастин та реєстрацію авто.
+                    </p>
+                    <p>
+                        Після завершення всіх необхідних процедур, ми привеземо
+                        ваше готове авто прямо під двері. Обираючи нас, ви отримуєте зручність і впевненість на кожному
+                        етапі доставки вашого автомобіля.
+                    </p>
+                    <a href="{% url 'about:about' %}" class="learn-more"
+                    >Детальніше <span>&#10140;</span></a
+                    >
+                </div>
+                <div class="feature-image">
+                    <img
+                            src="{% static 'img/index/SpiritAutoServices.webp' %}"
+                            alt="ПОСЛУГИ З ТРАНСПОРТУВАННЯ"
+                    />
+                </div>
+            </div>
+        </section>
+        <!-- ----- End Features Section ----- -->
+    </main>
+{% endblock %}
+
+{% block script %}
+
+    <script>
+        const marquee = document.querySelector('.marquee-index');
+        let speed = 0.4;
+        let position = 0;
+
+        marquee.innerHTML += marquee.innerHTML;
+
+        let marqueeWidth = marquee.scrollWidth / 2;
+
+        function animateMarquee() {
+            position -= speed;
+
+            if (position <= -marqueeWidth) {
+                position = 0;
+            }
+
+            marquee.style.transform = `translateX(${position}px)`;
+            requestAnimationFrame(animateMarquee);
+        }
+
+        animateMarquee();
+    </script>
+    <script>
+        // ------------------ Testimonial Section ------------------
+        document.addEventListener("DOMContentLoaded", function () {
+            const carousel = document.querySelector(".carousel");
+            const items = document.querySelectorAll(".carousel-item");
+            const prev = document.querySelector(".prev");
+            const next = document.querySelector(".next");
+            const dots = document.querySelectorAll(".dot");
+
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                const translateXValue = -currentIndex * 100;
+                carousel.style.transform = `translateX(${translateXValue}%)`;
+
+                dots.forEach((dot) => dot.classList.remove("active"));
+                dots[currentIndex].classList.add("active");
+            }
+
+            prev.addEventListener("click", function () {
+                currentIndex =
+                    (currentIndex - 1 + items.length) % items.length;
+                updateCarousel();
+            });
+
+            next.addEventListener("click", function () {
+                currentIndex = (currentIndex + 1) % items.length;
+                updateCarousel();
+            });
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener("click", function () {
+                    currentIndex = index;
+                    updateCarousel();
+                });
+            });
+
+            setInterval(function () {
+                next.click();
+            }, 10000);
+        });
+        // ------------------ End Testimonial Section ------------------
+    </script>
+
+    <script>
+        // ------------------ Hero Animation ------------------
+        document.addEventListener('DOMContentLoaded', function () {
+            const heroContentIndex = document.querySelector('.hero-content');
+
+            const observerIndex = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        heroContentIndex.classList.add('animate');
+                    }
+                });
+            });
+
+            observerIndex.observe(heroContentIndex);
+        });
+
+    </script>
+{% endblock %}

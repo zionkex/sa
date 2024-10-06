@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+
+{% block title %}Spirit Auto - Контакти. Пригін автомобілів зі США, Канади, Кореї{% endblock %}
+
+{% block content %}
+    <main style="background-color: #000;">
+        <section class="container__contact">
+
+            <nav class="breadcrumbs">
+                <ul class="breadcrumbs-list">
+                    <li class="breadcrumbs-item">
+                        <a href="{% url 'pages:index' %}" class="breadcrumbs-link">Головна</a>
+                    </li>
+                    <li class="breadcrumbs-item active">
+                        Контакти
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="contact-section">
+                <div class="contact-info">
+                    <h1 class="heading-contact">КОНТАКТИ</h1>
+
+                    <div>
+                        <div class="address">
+                            <p><span>Графік роботи:</span> <br> Пн-Пт: 09:00 - 17:00
+                            </p>
+                        </div>
+                        <div class="address">
+                            <a href="https://maps.app.goo.gl/QB16kT6sfuAuLdTc6" target="_blank"><p><span> Центральний офіс:</span> <br> вулиця Василя Липківського 45, офіс 11/12, <br> 2
+                                поверх
+                                Kyiv, Ukraine
+                            </p></a> 
+                        </div>
+                        <div class="contact__container">
+                            <p><span>Телефон:</span><br>
+                            <a href="tel:+380 (68) 018 66 66" class="phone">+380 (68) 018 66 66</a> <br>
+                            <a href="tel:+380 (68) 018 66 66" class="phone">+380 (68) 018 66 66</a></p>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="img-container__contact">
+                    <img src="{% static 'img/about/office.jpg' %}" alt="">
+                </div>
+            </div>
+            <div class="map-container">
+                <div id="map"></div>
+            </div>
+            <div class="contacts-social__container">
+                <div class="contact-card telegram">
+                    <div class="cntc__container">
+                        <img src="{% static 'img/icons/social-icons/telegram.svg' %}" alt="">
+                        <h3>Telegram</h3>
+                    </div>
+                    <p>Отримайте консультацію нашого менеджера у Telegram</p>
+                    <a href="https://t.me/spirit_auto_ukraine" target="_blank" class="button">Отримати консультацію</a>
+                </div>
+                <div class="contact-card viber">
+                    <div class="cntc__container">
+                        <img src="{% static 'img/icons/social-icons/viber.svg' %}" alt="">
+                        <h3>Viber</h3>
+                    </div>
+                    <p>Отримайте консультацію нашого менеджера у Viber</p>
+                    <a href="viber://chat?number=%2B380680186666" target="_blank" class="button">Отримати консультацію</a>
+                </div>
+                <div class="contact-card whatsapp">
+                    <div class="cntc__container">
+                        <img src="{% static 'img/icons/social-icons/whatsapp.svg' %}" alt="">
+                        <h3>WhatsApp</h3>
+                    </div>
+                    <p>Отримайте консультацію нашого менеджера у WhatsApp</p>
+                    <a href="https://wa.me/380680186666" target="_blank" class="button">Отримати консультацію</a>
+                </div>
+            </div>
+        </section>
+    <section class="bottom__border"></section>
+    </main>
+{% endblock %}
+
+{% block script %}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-vS-G0JO2oBKgB8KdMAB6KuIgk07_gak&callback=initMap"
+            async defer></script>
+    <script>
+        function initMap() {
+            var officeLocation = {lat: 50.4314948, lng: 30.4736664};
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                center: officeLocation
+            });
+
+            var marker = new google.maps.Marker({
+                position: officeLocation,
+                map: map,
+                title: 'Центральний офіс'
+            });
+        }
+    </script>
+{% endblock %}

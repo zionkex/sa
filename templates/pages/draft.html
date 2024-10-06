@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+<div class="marquee-container-index">
+    <div class="marquee-index">
+        <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Image 1">
+        <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Image 1">
+        <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Image 1">
+        <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Image 1">
+        <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Image 1">
+        <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Image 1">
+        <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Image 1">
+        <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Image 1">
+        <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Image 1">
+        <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Image 1">
+        <img src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}" alt="Image 1">
+
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block script %}
+<script>
+    const marquee = document.querySelector('.marquee-index');
+    let speed = 0.4; // Швидкість руху
+    let position = 0; // Початкова позиція
+
+    // Дублюємо контент для безперервного руху
+    marquee.innerHTML += marquee.innerHTML;
+
+    let marqueeWidth = marquee.scrollWidth / 2;
+
+    function animateMarquee() {
+        position -= speed;
+
+        if (position <= -marqueeWidth) {
+            position = 0;
+        }
+
+        marquee.style.transform = `translateX(${position}px)`;
+        requestAnimationFrame(animateMarquee);
+    }
+
+    animateMarquee();
+</script>
+
+
+
+{% endblock %}

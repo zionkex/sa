@@ -1,0 +1,404 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Spirit Auto | Про Компанію. Пригін авто зі США, Канади, Кореї{% endblock %}
+
+{% block content %}
+    <main style="background-color: #000;">
+        <section>
+            <div class="hero-section__about">
+                <div class="overlay__about"></div>
+                <div class="content__about">
+                    <nav class="breadcrumbs">
+                        <ul class="breadcrumbs-list">
+                            <li class="breadcrumbs-item">
+                                <a href="{% url 'pages:index' %}" class="breadcrumbs-link">Головна</a>
+                            </li>
+                            <li class="breadcrumbs-item active">
+                                Про Компанію
+                            </li>
+                        </ul>
+                    </nav>
+                    <h1 class="header__about">
+                        Відкрийте нові можливості<br/>разом з командою<br/>
+                        <span>Spirit Auto</span>
+                    </h1>
+                </div>
+            </div>
+        </section>
+        <!-- ------ End Hero About ------ -->
+        <section>
+            <div class="container__layout_about">
+                <h2>
+                    Наш підхід до роботи допомагає створювати <br/>нову реальність
+                    на авторинку
+                </h2>
+                <div class="feature-grid__layout_about">
+                    <div
+                            class="feature-item__layout_about"
+                            style="
+                                    background-image: url({% static 'img/about/samuele-errico-piccarini-MyjVReZ5GLQ-unsplash.jpg' %});
+                                    "
+                    >
+                        <div class="overlay__layout_about"></div>
+                        <div class="feature-content__layout_about">
+                            <h3>Компанія з досвідом</h3>
+                            <p>
+                                За 5 років ми накопичили значний досвід і здійснили сотні успішних поставок авто зі США.
+                                Наш досвід гарантує якість та надійність.
+                            </p>
+                        </div>
+                        <div class="checkmark__layout_about">
+                            <svg
+                                    width="16"
+                                    height="12"
+                                    viewBox="0 0 16 12"
+                                    fill="none"
+                            >
+                                <path
+                                        d="M1 5.5L5.5 10L15 1"
+                                        stroke="white"
+                                        stroke-width="2"
+                                />
+                            </svg>
+                        </div>
+                    </div>
+                    <div
+                            class="feature-item__layout_about"
+                            style="
+                                    background-image: url({% static 'img/about/melody-p-PwcfmLRzJcI-unsplash.jpg' %});
+                                    "
+                    >
+                        <div class="overlay__layout_about"></div>
+                        <div class="feature-content__layout_about">
+                            <h3>Ефективність і швидкість</h3>
+                            <p>
+                                Гарантуємо швидку та надійну доставку автомобілів зі США. Замовте своє авто сьогодні і
+                                насолоджуйтеся безпечною подорожжю!
+                            </p>
+                        </div>
+                        <div class="checkmark__layout_about">
+                            <svg
+                                    width="16"
+                                    height="12"
+                                    viewBox="0 0 16 12"
+                                    fill="none"
+                            >
+                                <path
+                                        d="M1 5.5L5.5 10L15 1"
+                                        stroke="white"
+                                        stroke-width="2"
+                                />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-grid__lg__layout_about">
+                    <div
+                            class="feature-item__layout_about"
+                            style="
+                                    background-image: url({% static 'img/about/drew-stock-SEvwpRaKa3M-unsplash.jpg' %});
+                                    "
+                    >
+                        <div class="overlay__layout_about"></div>
+                        <div class="feature-content__layout_about">
+                            <h3>Ексклюзивні можливості</h3>
+                            <p>
+                                Знаходимо авто, яких немає навіть у дилерів, щоб задовольнити найвибагливіші смаки.
+                            </p>
+                        </div>
+                        <div class="checkmark__layout_about">
+                            <svg
+                                    width="16"
+                                    height="12"
+                                    viewBox="0 0 16 12"
+                                    fill="none"
+                            >
+                                <path
+                                        d="M1 5.5L5.5 10L15 1"
+                                        stroke="white"
+                                        stroke-width="2"
+                                />
+                            </svg>
+                        </div>
+                    </div>
+                    <div
+                            class="feature-item__layout_about"
+                            style="
+                                    background-image: url({% static 'img/about/hannah-busing-0V6DmTuJaIk-unsplash.jpg' %});
+                                    "
+                    >
+                        <div class="overlay__layout_about"></div>
+                        <div class="feature-content__layout_about">
+                            <h3>Ми завжди на зв'язку</h3>
+                            <p>
+                                Підтримуємо вас на кожному етапі — від вибору авто до отримання ключів, відповідаємо на
+                                всі питання.
+                            </p>
+                        </div>
+                        <div class="checkmark__layout_about">
+                            <svg
+                                    width="16"
+                                    height="12"
+                                    viewBox="0 0 16 12"
+                                    fill="none"
+                            >
+                                <path
+                                        d="M1 5.5L5.5 10L15 1"
+                                        stroke="white"
+                                        stroke-width="2"
+                                />
+                            </svg>
+                        </div>
+                    </div>
+                    <div
+                            class="feature-item__layout_about"
+                            style="
+                                    background-image: url({% static 'img/about/parshva-shah-QHoQr0b0I9g-unsplash.jpg' %});
+                                    "
+                    >
+                        <div class="overlay__layout_about"></div>
+                        <div class="feature-content__layout_about">
+                            <h3>Прозорі умови</h3>
+                            <p>
+                                Прозоро розписуємо всі витрати на авто ще до покупки, і всі суми фіксуються в
+                                документах. Ви точно знаєте, за що платите.
+                            </p>
+                        </div>
+                        <div class="checkmark__layout_about">
+                            <svg
+                                    width="16"
+                                    height="12"
+                                    viewBox="0 0 16 12"
+                                    fill="none"
+                            >
+                                <path
+                                        d="M1 5.5L5.5 10L15 1"
+                                        stroke="white"
+                                        stroke-width="2"
+                                />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="design-section">
+            <h2>ЕТАПИ РОБОТИ ПІД ЧАС КУПІВЛІ АВТО ЗІ США</h2>
+            <div class="timeline">
+                <div class="timeline-empty">
+                </div>
+                <div class="timeline-middle">
+                    <div class="timeline-circle"></div>
+                </div>
+                <div class="timeline-component timeline-content">
+                    <h3>1. ДОГОВІР</h3>
+                    <p>Способи підписання договору</p>
+                    <ul>
+                        <li><span>В офісі:</span> Ви можете підписати договір особисто в нашому офісі. Ми забезпечимо
+                            зручний час для
+                            зустрічі та надамо всі необхідні документи для підписання.
+                        </li>
+                        <li><span>Через пошту:</span> Якщо ви не можете відвідати наш офіс, ми можемо надіслати договір
+                            вам поштою.
+                            Ви отримаєте документи, підпишете їх і повернете нам поштою.
+                        </li>
+                        <li><span>Через застосунок Дія:</span> Для вашої зручності також доступний варіант підписання
+                            через
+                            застосунок Дія. Це швидкий і зручний спосіб оформлення договору без потреби особистого
+                            контакту або використання традиційної пошти.
+                        </li>
+                    </ul>
+                </div>
+                <div class="timeline-component timeline-content">
+                    <h3>2. ПІДБІР АВТО</h3>
+                    <p>Від нових дилерських авто до машин із незначними пошкодженнями</p>
+                    <ul>
+                        <li><span>Визначення критеріїв: </span>Спершу ми детально обговорюємо з вами ваші вимоги до
+                            автомобіля, включаючи марку, модель, рік випуску, пробіг, колір, тип кузова, бюджет та інші
+                            особливості, які для вас важливі.
+                        </li>
+                        <li><span>Подання варіантів: </span>Після збору всіх необхідних даних ми надамо вам кілька
+                            варіантів автомобілів, які максимально відповідають вашим критеріям. Разом з вами ми
+                            обговоримо кожен варіант, щоб обрати найкращий.
+                        </li>
+                    </ul>
+                </div>
+                <div class="timeline-middle">
+                    <div class="timeline-circle"></div>
+                </div>
+                <div class="timeline-empty">
+                </div>
+                <div class="timeline-empty">
+                </div>
+                <div class="timeline-middle">
+                    <div class="timeline-circle"></div>
+                </div>
+                <div class=" timeline-component timeline-content">
+                    <h3>3. ДОДАТКОВА ПЕРЕВІРКА</h3>
+                    <p>Ми замовляємо детальний звіт Carfax для вибраного автомобіля. Carfax надає вичерпну інформацію
+                        про історію авто, включаючи його попередніх власників, аварії, відмітки про обслуговування та
+                        інші важливі дані.</p>
+                </div>
+                <div class="timeline-component timeline-content">
+                    <h3>4. ВИГРАШ НА АУКЦІОНІ</h3>
+                    <ul>
+                        <li><span>Визначення ставки: </span>Ми прораховуємо оптимальну ставку для участі в аукціоні, щоб
+                            забезпечити придбання автомобіля в межах вашого бюджету. Враховуємо всі витрати, щоб
+                            уникнути перевищення бюджету і забезпечити конкурентоспроможність ставки.
+                        </li>
+                        <li><span>УЧАСТЬ НА АУКЦІОНАХ:</span></li>
+                        <li style="list-style: none;">
+                            <ol>
+                                <li><span>У нашому офісі: </span>Ви можете бути присутніми на аукціоні особисто в нашому
+                                    офісі, де ми забезпечимо комфортні умови для участі в торгах.
+                                </li>
+                                <li><span>По дзвінку з демонстрацією екрану: </span>Ми можемо організувати відеодзвінок
+                                    з демонстрацією екрану, щоб ви могли спостерігати за торгами в реальному часі і
+                                    приймати участь дистанційно.
+                                </li>
+                                <li><span>По телефону: </span>Якщо вам зручніше, ви можете приймати участь у торгах
+                                    через
+                                    телефонний зв'язок, обговорюючи ваші ставки і стратегії з нашими фахівцями.
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+                <div class="timeline-middle">
+                    <div class="timeline-circle"></div>
+                </div>
+                <div class="timeline-empty">
+                </div>
+                <div class="timeline-empty">
+                </div>
+                <div class="timeline-middle">
+                    <div class="timeline-circle"></div>
+                </div>
+                <div class=" timeline-component timeline-content">
+                    <h3>5. ФІНАНСОВІ ГАРАНТІЇ</h3>
+                    <p>Після завершення покупки автомобіля ми надаємо детальний документ, що містить усі витрати,
+                        пов'язані з придбанням, включаючи:</p>
+                    <ul>
+                        <li><span>Вартість автомобіля: </span>Основна сума покупки.</li>
+                        <li><span>Комісії аукціону: </span>Витрати, що стосуються аукціонних зборів.</li>
+                        <li><span>Транспортні витрати: </span>Вартість транспортування автомобіля до вашого місця
+                            призначення.
+                        </li>
+                        <li><span>Митні збори: </span>Якщо застосовно, витрати на розмитнення.</li>
+                    </ul>
+                </div>
+                <div class="timeline-component timeline-content">
+                    <h3>6. ОФОРМЛЕННЯ ДОСТАВКИ</h3>
+                    <ul>
+                        <li><span>Покупка і підготовка автомобіля:</span></li>
+                        <li style="list-style: none;">
+                            <ol>
+                                <li><span>Оплата: </span>Здійснюєте перший платіж після покупки на аукціоні.</li>
+                                <li><span>Забір і підготовка: </span>Забираємо автомобіль з аукціону в США і готуємо
+                                    його до транспортування.
+                                </li>
+                            </ol>
+                        </li>
+                        <li><span>Доставка до Європи:</span></li>
+                        <li style="list-style: none;">
+                            <ol>
+                                <li><span>Транспорт до порту США: </span>Транспортуємо автомобіль до порту в США.</li>
+                                <li><span>Морське транспортування: </span>Завантажуємо автомобіль на корабель і
+                                    відправляємо в Європу.
+                                </li>
+                                <li><span>Оплата доставки: </span>Оплата за доставку проходить за 1-2 тижні до прибуття
+                                    автомобіля в Європу.
+                                </li>
+                            </ol>
+                        </li>
+                        <li><span>Доставка в Україну через Литву: </span></li>
+                        <li style="list-style: none;">
+                            <ol>
+                                <li><span>Прибуття в порт Клайпеда: </span>Автомобіль прибуває в литовський порт
+                                    Клайпеда.
+                                </li>
+                                <li><span>Транспорт до України: </span>Транспортуємо автомобіль автотранспортом до
+                                    України, з можливістю прибуття в Львів, Рівне або Київ, в залежності від ваших
+                                    уподобань.
+                                </li>
+                            </ol>
+                        </li>
+                        <li><span>Розмитнення в Україні:</span></li>
+                        <li style="list-style: none;">
+                            <ol>
+                                <li><span>Митне оформлення: </span>Сплачуємо митні збори і оформлюємо всі необхідні
+                                    документи.
+                                </li>
+                                <li><span>Перевірка відповідності: </span>Перевіряємо відповідність автомобіля
+                                    українським стандартам.
+                                </li>
+                            </ol>
+                        </li>
+                        <li><span>Доставка до кінцевого місця:</span></li>
+                        <li style="list-style: none;">
+                            <ol>
+                                <li><span>Доставка до вашого адреси: </span>Після розмитнення забезпечуємо доставку
+                                    автомобіля до вашого дому або офісу.
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+                <div class="timeline-middle">
+                    <div class="timeline-circle"></div>
+                </div>
+                <div class="timeline-empty">
+                </div>
+                <div class="timeline-empty">
+                </div>
+                <div class="timeline-middle">
+                    <div class="timeline-circle"></div>
+                </div>
+
+            </div>
+        </section>
+        <!-- ------ End Block Quote ------ -->
+        <!-- ------ Team Members Gallery ------ -->
+        <section class="scrollable-gallery">
+            <div style="max-width: 1400px; margin: auto">
+                <h2>Наші співробітники горять своєю справою <br> і доведуть вам це на практиці</h2>
+                <p>Ми зібрали команду не просто професіоналів своєї справи, <br>а тих, для кого автомобільний ринок США
+                    - це
+                    хобі та пристрасть</p>
+                <div class="scrollable-gallery__about">
+                    {% for worker in team %}
+                        <div class="gallery-item__about">
+                            <img src="{{ worker.photo.url }}" alt="ВИТАЛИЙ"/>
+                            <div class="caption__about">{{ worker.name }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- ------ End Team Members Gallery ------ -->
+        <section class="bottom__border"></section>
+    </main>
+{% endblock %}
+
+{% block script %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const contentAbout = document.querySelector('.hero-section__about .content__about');
+
+            const observerAbout = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        contentAbout.classList.add('animate');
+                    }
+                });
+            });
+
+            observerAbout.observe(contentAbout);
+        });
+
+    </script>
+{% endblock %}

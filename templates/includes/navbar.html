@@ -1,0 +1,43 @@
+{% load static %}
+
+<header>
+    <div class="container-header">
+        <div class="logo">
+            <a href="{% url 'pages:index' %}">
+                <img
+                        src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}"
+                        alt="Spirit Auto Logo авто зі США під ключ"
+                /></a>
+        </div>
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="{% url 'pages:index' %}">Головна</a></li>
+                <li><a href="{% url 'catalog:cars_catalog' %}">Авто з США</a></li>
+                <li><a href="{% url 'catalog:cars_in_stock' %}">Авто в наявності</a></li>
+                <li><a href="{% url 'about:about' %}">Про Компанію</a></li>
+                <li><a href="{% url 'pages:contact' %}">Контакти</a></li>
+            </ul>
+        </nav>
+
+        <div class="burger">
+            <div class="burger-lines"></div>
+        </div>
+    </div>
+    <div class="mobile-nav">
+        <div class="mobile-nav-content">
+            <div class="mobile-nav-header">
+                <img
+                        src="{% static 'img/logo/SpiritAutoLogo-crema.webp' %}"
+                        alt="Spirit Auto Logo авто зі США під ключ"
+                />
+            </div>
+            <ul>
+                <li><a href="{% url 'pages:index' %}">Головна</a></li>
+                <li><a href="{% url 'catalog:cars_catalog' %}">Авто з США</a></li>
+                <li><a href="{% url 'catalog:cars_in_stock' %}">Авто в наявності</a></li>
+                <li><a href="{% url 'about:about' %}">Про Компанію</a></li>
+                <li><a href="{% url 'pages:contact' %}">Контакти</a></li>
+            </ul>
+        </div>
+    </div>
+</header>

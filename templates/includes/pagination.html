@@ -1,0 +1,19 @@
+<div class="pagination">
+    {% if car_list.has_previous %}
+        <a href="?page=1{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">1</a>
+        {% if car_list.number > 2 %}
+            <span>...</span>
+        {% endif %}
+        <a href="?page={{ car_list.previous_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">{{ car_list.previous_page_number }}</a>
+    {% endif %}
+
+    <span class="current">{{ car_list.number }}</span>
+
+    {% if car_list.has_next %}
+        <a href="?page={{ car_list.next_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">{{ car_list.next_page_number }}</a>
+        {% if car_list.number < car_list.paginator.num_pages|add:'-1' %}
+            <span>...</span>
+        {% endif %}
+        <a href="?page={{ car_list.paginator.num_pages }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">{{ car_list.paginator.num_pages }}</a>
+    {% endif %}
+</div>

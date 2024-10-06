@@ -1,0 +1,518 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load humanize %}
+
+
+{% block title %}{{ single_car.car_title }}, {{ single_car.fuel_type }}
+    {% if single_car.engine %}{{ single_car.engine }} л{% endif %}, {{ single_car.body_style }} | Spirit
+    Auto{% endblock %}
+{% block meta %}{{ single_car.car_title }}, {{ single_car.fuel_type }}
+    {% if single_car.engine %}{{ single_car.engine }} л{% endif %}, {{ single_car.body_style }}, {{ single_car.year }}
+    рік, {{ single_car.color }} колір{% endblock %}
+
+{% block og_title %}{{ single_car.car_title }}, {{ single_car.fuel_type }}
+    {% if single_car.engine %}{{ single_car.engine }} л{% endif %}, {{ single_car.body_style }}, {{ single_car.year }}
+    рік, {{ single_car.color }} колір{% endblock %}
+
+{% block og_description %}{{ single_car.car_title }}, {{ single_car.fuel_type }}
+    {% if single_car.engine %}{{ single_car.engine }} л{% endif %}, {{ single_car.body_style }}, {{ single_car.year }}
+    рік, {{ single_car.color }} колір{% endblock %}
+
+{% block og_image %}{% static 'img/favicon/favicon-256x256.png' %}{% endblock %}
+
+{% block og_url %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block structured_data %}
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org/",
+          "@type": "Organization",
+          "name": "{{ single_car.car_title }}, {{ single_car.fuel_type }} {% if single_car.engine %}
+        {{ single_car.engine }} л{% endif %}
+        , {{ single_car.body_style }}, {{ single_car.year }} рік, {{ single_car.color }} колір",
+          "image": "{% static 'img/favicon/favicon-256x256.png' %}",
+  "description": "{{ single_car.car_title }}, {{ single_car.fuel_type }} {% if single_car.engine %}
+        {{ single_car.engine }} л{% endif %}
+        , {{ single_car.body_style }}, {{ single_car.year }} рік, {{ single_car.color }} колір",
+  "brand": {
+    "@type": "Brand",
+    "name": "Spirit Auto"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ request.build_absolute_uri }}",
+    "itemCondition": "https://schema.org/NewCondition",
+    "availability": "https://schema.org/InStock"
+  },
+    "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+380XXXXXXXXX",
+    "contactType": "Customer Service",
+    "areaServed": "UA",
+    "availableLanguage": "Ukrainian"
+  }
+}
+    </script>
+{% endblock %}
+
+{% block content %}
+    <main style="background: black;">
+        <section
+                style="color: black; background: #000; border-top-right-radius: 15px; border-top-left-radius: 15px; border-top: 1px solid #c29958;">
+            <nav class="breadcrumbs">
+                <ul class="breadcrumbs-list">
+                    <li class="breadcrumbs-item">
+                        <a style="font-size: 15px;" href="{% url 'pages:index' %}" class="breadcrumbs-link">Головна</a>
+                    </li>
+                    <li class="breadcrumbs-item">
+                        <a style="font-size: 15px;" href="{% url 'catalog:cars_catalog' %}" class="breadcrumbs-link">Каталог</a>
+                    </li>
+                    <li class="breadcrumbs-item active">
+                        {{ single_car.car_title }}
+                    </li>
+                </ul>
+            </nav>
+        </section>
+
+        <section style="color: #fff; background: #000;">
+            <div class="container_car_detail">
+                <div class="gallery_car_detail display-pc-gallery">
+                    <div class="thumbnails_car_detail-wrapper">
+                        <button
+                                class="scroll-btn_car_detail top"
+                                onclick="scrollThumbnails(-1)"
+                        >
+                            &#9650;
+                        </button>
+                        <div class="thumbnails_car_detail">
+                            <div
+                                    class="scroll-indicator"
+                                    id="scrollIndicator"
+                            ></div>
+                            {% if single_car.car_title_photo %}
+                                <img
+                                        src="{{ single_car.car_title_photo.url }}"
+                                        alt="Thumbnail 1"
+                                        onclick="changeImageCarDetail(this)"
+                                />
+                            {% endif %}
+                            {% if single_car.car_photo_1 %}
+                                <img
+                                        src="{{ single_car.car_photo_1.url }}"
+                                        alt="Thumbnail 2"
+                                        onclick="changeImageCarDetail(this)"
+                                />
+                            {% endif %}
+                            {% if single_car.car_photo_2 %}
+                                <img
+                                        src="{{ single_car.car_photo_2.url }}"
+                                        alt="Thumbnail 3"
+                                        onclick="changeImageCarDetail(this)"
+                                />
+                            {% endif %}
+                            {% if single_car.car_photo_3 %}
+                                <img
+                                        src="{{ single_car.car_photo_3.url }}"
+                                        alt="Thumbnail 4"
+                                        onclick="changeImageCarDetail(this)"
+                                />
+                            {% endif %}
+                            {% if single_car.car_photo_4 %}
+                                <img
+                                        src="{{ single_car.car_photo_4.url }}"
+                                        alt="Thumbnail 5"
+                                        onclick="changeImageCarDetail(this)"
+                                />
+                            {% endif %}
+                            {% if single_car.car_photo_5 %}
+                                <img
+                                        src="{{ single_car.car_photo_5.url }}"
+                                        alt="Thumbnail 6"
+                                        onclick="changeImageCarDetail(this)"
+                                />
+                            {% endif %}
+                            {% if single_car.car_photo_6 %}
+                                <img
+                                        src="{{ single_car.car_photo_6.url }}"
+                                        alt="Thumbnail 7"
+                                        onclick="changeImageCarDetail(this)"
+                                />
+                            {% endif %}
+                            {% if single_car.car_photo_7 %}
+                                <img
+                                        src="{{ single_car.car_photo_7.url }}"
+                                        alt="Thumbnail 8"
+                                        onclick="changeImageCarDetail(this)"
+                                />
+                            {% endif %}
+                        </div>
+                        <button
+                                class="scroll-btn_car_detail bottom"
+                                onclick="scrollThumbnails(1)"
+                        >
+                            &#9660;
+                        </button>
+                    </div>
+                    <div class="main-image_car_detail">
+                        <button
+                                class="nav-btn_car_detail prev-btn_car_detail"
+                                onclick="navigateCarDetail(-1)"
+                        >
+                            &#10094;
+                        </button>
+                        <img
+                                src="{{ single_car.car_title_photo.url }}"
+                                id="currentImageCarDetail"
+                                alt="Main Image"
+                        />
+                        <button
+                                class="nav-btn_car_detail next-btn_car_detail"
+                                onclick="navigateCarDetail(1)"
+                        >
+                            &#10095;
+                        </button>
+                    </div>
+                </div>
+                <div class="display-mob-gallery">
+                    <div class="gallery-container">
+                        <div class="owl-carousel owl-theme">
+                            {% if single_car.car_title_photo %}
+                                <div class="item"><img src="{{ single_car.car_title_photo.url }}" alt="Slide 1"></div>
+                            {% endif %}
+                            {% if single_car.car_photo_1 %}
+                                <div class="item"><img src="{{ single_car.car_photo_1.url }}" alt="Slide 1"></div>
+                            {% endif %}
+                            {% if single_car.car_photo_2 %}
+                                <div class="item"><img src="{{ single_car.car_photo_2.url }}" alt="Slide 1"></div>
+                            {% endif %}
+                            {% if single_car.car_photo_3 %}
+                                <div class="item"><img src="{{ single_car.car_photo_3.url }}" alt="Slide 1"></div>
+                            {% endif %}
+                            {% if single_car.car_photo_4 %}
+                                <div class="item"><img src="{{ single_car.car_photo_4.url }}" alt="Slide 1"></div>
+                            {% endif %}
+                            {% if single_car.car_photo_5 %}
+                                <div class="item"><img src="{{ single_car.car_photo_5.url }}" alt="Slide 1"></div>
+                            {% endif %}
+                            {% if single_car.car_photo_6 %}
+                                <div class="item"><img src="{{ single_car.car_photo_6.url }}" alt="Slide 1"></div>
+                            {% endif %}
+                            {% if single_car.car_photo_7 %}
+                                <div class="item"><img src="{{ single_car.car_photo_7.url }}" alt="Slide 1"></div>
+                            {% endif %}
+                            {% if single_car.car_photo_8 %}
+                                <div class="item"><img src="{{ single_car.car_photo_8.url }}" alt="Slide 1"></div>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details_car_detail">
+                    <h1>{{ single_car.car_title }}</h1>
+                    <div class="container__flex">
+                        <div class="price-car_car_detail">{{ single_car.price| intcomma }} $</div>
+                        <a href="#" class="custom-button-left btn__left"
+                           style="padding: 10px 20px; font-weight: 600; border-radius: 6px;"
+                        >Консультація</a
+                        >
+                    </div>
+                    <div class="specifications_car_detail">
+                        <h2>Технічні характеристики:</h2>
+                        <ul>
+                            <li>
+                                    <span class="icon">
+                                        <img
+                                                src="{% static 'img/catalog/car_description_icons/odometer.svg' %}"
+                                                alt="Пробіг"
+                                        />
+                                    </span>
+                                <strong>Пробіг:</strong>
+                                <span class="spec-value">{{ single_car.mileage | intcomma }} км</span>
+                            </li>
+                            <li>
+                                    <span class="icon">
+                                        <img
+                                                src="{% static 'img/catalog/car_description_icons/calendar.svg' %}"
+                                                alt="Рік"
+                                        />
+                                    </span>
+                                <strong>Рік:</strong>
+                                <span class="spec-value">{{ single_car.year }}</span>
+                            </li>
+                            <li>
+                                    <span class="icon">
+                                        <img
+                                                src="{% static 'img/catalog/car_description_icons/engine.svg' %}"
+                                                alt="Двигун"
+                                        />
+                                    </span>
+                                <strong>Двигун:</strong>
+                                <span class="spec-value">{{ single_car.engine }} л</span>
+                            </li>
+                            <li>
+                                    <span class="icon">
+                                        <img
+                                                src="{% static 'img/catalog/car_description_icons/transmission.svg' %}"
+                                                alt="Трансмісія"
+                                        />
+                                    </span>
+                                <strong>Трансмісія:</strong>
+                                <span class="spec-value">{{ single_car.transmission }}</span>
+                            </li>
+                            <li>
+                                    <span class="icon">
+                                        <img
+                                                src="{% static 'img/catalog/car_description_icons/fuel.svg' %}"
+                                                alt="Паливо"
+                                        />
+                                    </span>
+                                <strong>Паливо:</strong>
+                                <span class="spec-value">{{ single_car.fuel_type }}</span>
+                            </li>
+                            <li>
+                                    <span class="icon">
+                                        <img
+                                                src="{% static 'img/catalog/car_description_icons/pryvid.svg' %}"
+                                                alt="Привід"
+                                        />
+                                    </span>
+                                <strong>Привід:</strong>
+                                <span class="spec-value"
+                                >{{ single_car.wheel_drive }}</span
+                                >
+                            </li>
+                            <li>
+                                    <span class="icon">
+                                        <img
+                                                src="{% static 'img/catalog/car_description_icons/color1.svg' %}"
+                                                alt="Колір"
+                                        />
+                                    </span>
+                                <strong>Колір:</strong>
+                                <span class="spec-value">{{ single_car.color }}</span>
+                            </li>
+                            <li>
+                                    <span class="icon">
+                                        <img
+                                                src="{% static 'img/catalog/car_description_icons/body_style1.svg' %}"
+                                                alt="Кузов"
+                                        />
+                                    </span>
+                                <strong>Кузов:</strong>
+                                <span class="spec-value">{{ single_car.body_style }}</span>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% if single_car.description %}
+                <div class="container_car_detail">
+                    <div class="details_car_detail description__detail-car" style="width: 100%;">
+                        <div class="specifications_car_detail">
+                            <h2 style="font-size: 25px; font-weight: 600; color: #c29958;">Про Авто</h2>
+                            <p>{{ single_car.description | safe }}</p>
+                        </div>
+
+                    </div>
+                </div>
+            {% endif %}
+        </section>
+
+        {% if similar_cars %}
+            <section
+                    style="color: #fff; background: #000;     
+                        border-bottom-left-radius: 15px;
+                        border-bottom-right-radius: 15px;
+                        border-bottom: 1px solid var(--gold); 
+                        padding-bottom: 2rem;">
+                <div class="breadcrumbs">
+                    <h2 style="color: #DACBB6; font-size: 26px;">Схожі автомобілі:</h2>
+                </div>
+                <div class="container_car_detail">
+                    <div class="car-list">
+
+                        {% for car in similar_cars %}
+                            <div class="car-link__detail-car">
+                                <div class="car-card">
+                                    <div class="car-image">
+                                        <a href="{{ car.get_absolute_url }}">
+                                            <img src="{{ car.car_title_photo.url }}" alt="Car Image"
+                                                 class="default-image"/>
+                                            {% if car.car_photo_1 %}
+                                                <img src="{{ car.car_photo_1.url }}" alt="Car Image Hover"
+                                                     class="hover-image"/>
+                                            {% endif %}
+                                        </a>
+                                    </div>
+                                    <div class="car-details">
+                                        <a href="">
+                                            <div class="car-title">{{ car.car_title }}</div>
+                                        </a>
+                                        <div class="car-info">
+                                            <div class="car-info-item">
+                                                <div class="label">Ціна</div>
+                                                <div class="value">{{ car.price | intcomma }} $</div>
+                                            </div>
+                                            <div class="car-info-item">
+                                                <div class="label">Двигун</div>
+                                                <div class="value">{{ car.fuel_type }},
+                                                    {% if car.engine %}{{ car.engine }}{% endif %} л
+                                                </div>
+
+                                            </div>
+                                            <div class="car-info-item">
+                                                <div class="label">Пробіг</div>
+                                                <div class="value">{{ car.mileage | intcomma }} км</div>
+                                            </div>
+                                            <div class="car-info-item">
+                                                <div class="label">Коробка передач</div>
+                                                <div class="value">{{ car.transmission }}</div>
+                                            </div>
+                                            <div class="car-info-item">
+                                                <div class="label">Привід</div>
+                                                <div class="value">{{ car.wheel_drive }}</div>
+
+                                            </div>
+                                            <div class="car-info-item">
+                                                <div class="label">Кузов</div>
+                                                <div class="value">{{ car.body_style }}</div>
+                                            </div>
+                                        </div>
+                                        <div class="car-buttons">
+                                            <a href="#" class="custom-button-right">Купити</a>
+                                            <a href="{{ car.get_absolute_url }}" class="btn btn-detail">Детальніше</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </section>
+        {% endif %}
+    </main>
+
+{% endblock %}
+
+{% block script %}
+    <script>
+        let currentIndexCarDetail = 0;
+        let scrollPosition = 0;
+        const imagesCarDetail = document.querySelectorAll(
+            ".thumbnails_car_detail img"
+        );
+        const mainImageCarDetail = document.getElementById(
+            "currentImageCarDetail"
+        );
+        const scrollIndicator = document.getElementById("scrollIndicator");
+        const thumbnailHeight = imagesCarDetail[0].clientHeight + 10;
+        const visibleThumbnailsCount = 7;
+
+        function changeImageCarDetail(element) {
+            mainImageCarDetail.style.opacity = "0";
+            setTimeout(() => {
+                mainImageCarDetail.src = element.src;
+                mainImageCarDetail.style.opacity = "1";
+            }, 300);
+            currentIndexCarDetail =
+                Array.from(imagesCarDetail).indexOf(element);
+
+            updateScrollIndicator();
+        }
+
+        function navigateCarDetail(direction) {
+            currentIndexCarDetail += direction;
+            if (currentIndexCarDetail < 0) {
+                currentIndexCarDetail = imagesCarDetail.length - 1;
+            } else if (currentIndexCarDetail >= imagesCarDetail.length) {
+                currentIndexCarDetail = 0;
+            }
+            changeImageCarDetail(imagesCarDetail[currentIndexCarDetail]);
+        }
+
+        function updateScrollIndicator() {
+            const translateY = currentIndexCarDetail * thumbnailHeight;
+            scrollIndicator.style.transform = `translateY(${translateY}px)`;
+
+            if (currentIndexCarDetail < scrollPosition) {
+                scrollPosition = currentIndexCarDetail;
+                scrollThumbnails(0);
+            } else if (
+                currentIndexCarDetail >=
+                scrollPosition + visibleThumbnailsCount
+            ) {
+                scrollPosition =
+                    currentIndexCarDetail - visibleThumbnailsCount + 1;
+                scrollThumbnails(0);
+            }
+        }
+
+        function scrollThumbnails(direction) {
+            scrollPosition += direction;
+
+            if (scrollPosition < 0) {
+                scrollPosition = 0;
+            } else if (
+                scrollPosition >
+                imagesCarDetail.length - visibleThumbnailsCount
+            ) {
+                scrollPosition =
+                    imagesCarDetail.length - visibleThumbnailsCount;
+            }
+
+            const translateY = -scrollPosition * thumbnailHeight;
+            document.querySelector(
+                ".thumbnails_car_detail"
+            ).style.transform = `translateY(${translateY}px)`;
+        }
+
+        updateScrollIndicator();
+
+        // ----------- Mobile Gallery ---------------------
+        let slideIndexDetailGalleryMob = 0;
+        const slidesDetailGalleryMob = document.querySelector(
+            ".slides__car-detail__mob-gallery"
+        );
+        const dotsDetailGalleryMob = document.querySelectorAll(
+            ".dot__car-detail__mob-gallery"
+        );
+
+        function navigateSlidesDetailGalleryMob(n) {
+            slideIndexDetailGalleryMob += n;
+            if (
+                slideIndexDetailGalleryMob >=
+                slidesDetailGalleryMob.children.length
+            ) {
+                slideIndexDetailGalleryMob = 0;
+            } else if (slideIndexDetailGalleryMob < 0) {
+                slideIndexDetailGalleryMob =
+                    slidesDetailGalleryMob.children.length - 1;
+            }
+            updateSlidesDetailGalleryMob();
+        }
+
+        function currentSlideDetailGalleryMob(n) {
+            slideIndexDetailGalleryMob = n - 1;
+            updateSlidesDetailGalleryMob();
+        }
+
+        function updateSlidesDetailGalleryMob() {
+            const offset = -slideIndexDetailGalleryMob * 100;
+            slidesDetailGalleryMob.style.transform = `translateX(${offset}%)`;
+            dotsDetailGalleryMob.forEach((dot) =>
+                dot.classList.remove("active__car-detail__mob-gallery")
+            );
+            dotsDetailGalleryMob[slideIndexDetailGalleryMob].classList.add(
+                "active__car-detail__mob-gallery"
+            );
+        }
+
+        updateSlidesDetailGalleryMob();
+        // ----------- End Mobile Gallery ---------------------
+    </script>
+{% endblock %}

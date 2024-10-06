@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 20 20">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #dacbb6;
+      }
+    </style>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.6.0, SVG Export Plug-In . SVG Version: 1.2.0 Build 709)  -->
+  <g>
+    <g id="_Шар_1" data-name="Шар_1">
+      <g id="_Шар_1-2" data-name="_Шар_1">
+        <g id="_Шар_1-2">
+          <path class="cls-1" d="M1.8.8h2.9c.3,0,.5.1.7.3l2,2,.8-.8c.4-.4.9-.6,1.4-.6h5.8c.5,0,1,.2,1.4.6l1,1c.4.4.6.9.6,1.4v12.6c0,1.1-.9,1.9-1.9,1.9H6.6c-1.1,0-1.9-.9-1.9-1.9V6.6c0-.5.2-1,.6-1.4l.8-.8-1.7-1.7H1.8V.8M9.5,3.7v1.9h5.8v-1.9h-5.8M9.9,9.5l-1.9-1.9h-1.4v1.4l1.9,1.9v3.1l-1.9,1.9v1.4h1.4l1.9-1.9h3.1l1.9,1.9h1.4v-1.4l-1.9-1.9v-3.1l1.9-1.9v-1.4h-1.4l-1.9,1.9h-3.1M10.5,11.5h1.9v1.9h-1.9v-1.9Z"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
